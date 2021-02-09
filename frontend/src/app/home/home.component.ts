@@ -9,7 +9,7 @@ import {fbModel} from '../home/feedback.model'
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private log:LoginserviceService) { }
+  constructor(public log:LoginserviceService) { }
   fbs:fbModel[];
   ngOnInit(): void {
 
