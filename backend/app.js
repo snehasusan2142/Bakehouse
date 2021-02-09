@@ -1,7 +1,7 @@
 const express = require('express');
 const app= new express();
 const Cakesdata=require('./src/model/cakesdata')
-const port = 3000;
+const port = process.env.PORT || 3000;
 const cors = require('cors');
 app.use(cors());
 const allcakesRouter= require('./src/routes/allcakesRoute')(app);
