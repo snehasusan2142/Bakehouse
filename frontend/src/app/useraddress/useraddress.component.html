@@ -1,0 +1,75 @@
+<p style="margin-top:12%;"><br></p>
+<div class="container" *ngIf=(len) >
+<div class="container" >
+ 
+  
+    <div class="card text-center text-white bg-success mb-3">
+      <div class="card-header">
+        <h1  >Your cart items</h1>
+     </div>
+      <div class="card-body" >     
+        <p class="card-text" *ngFor='let cake of checkoutcakes'>
+          {{cake.name}} - {{cake.quantity}}Kg
+        </p>
+        <h3>Total amount: Rs{{totalamt}}</h3> <br>
+      </div>
+    </div>
+    <h1 class="text-center ">Fill Out Shipping Details</h1><br> <br>
+ </div>
+    <form (ngSubmit)="onSubmit()" #Form="ngForm" >
+        <div class="row">
+          <div class="col-4">
+            <label>First Name</label>
+            <input type="text" class="form-control" placeholder="First name" required [(ngModel)]="model.name"
+             name="name"  #name="ngModel">
+                    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">Name is required </div>
+         </div>
+          <div class="col-4">
+            <label >Last Name</label>
+            <input type="text" class="form-control" placeholder="Last name">
+          </div>
+        </div><br>  
+        <div class="row">
+              <div class="form-group col-md-4">
+                <label for="inputEmail4">Email</label>
+                <input type="email" class="form-control" id="inputEmail" placeholder="Email" required [(ngModel)]="model.email"
+                name="email"  #email="ngModel">
+                <div [hidden]="name.valid || name.pristine" class="alert alert-danger">Email is required </div>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="inputEmail4">Phone</label>
+                <input type="text" class="form-control" id="phone" placeholder="Phonenumber" required [(ngModel)]="model.phone"   name="phone" >
+              </div>
+        </div><br>
+        <div class="row">
+                <div class="form-group col-md-4">
+                    <label for="inputAddress">Address</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" required [(ngModel)]="model.add1"  name="add1" >
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputAddress2">Address 2</label>
+                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" required [(ngModel)]="model.add2"  name="add2">
+                  </div>
+        </div><br>
+        <div class="row">
+              <div class="form-group col-md-4">
+                <label for="inputCity">City</label>
+                <input type="text" class="form-control" id="city" required [(ngModel)]="model.city"  name="city" >
+              </div>
+              <div class="form-group col-md-4">
+                <label for="inputState">State</label>
+                <input id="inputState" class="form-control" required [(ngModel)]="model.state"  name="state" >
+                  
+              </div>
+              <div class="form-group col-md-2">
+                <label for="inputZip">Zip</label>
+                <input type="text" class="form-control" id="inputZip" required [(ngModel)]="model.zip"  name="zip" >
+              </div>
+        </div> <br>
+        <button type="submit" class="btn btn-success" [disabled]="!Form.form.valid">Proceed to payement</button>
+    
+      </form>
+</div>
+<br><br>
+
+

@@ -1,0 +1,71 @@
+<p></p>
+<div>
+    <div class="container container1 text-center col-lg-12" style="margin-left: 7em;padding-top: 5em;"> 
+        <button (click)="fn1()" mat-raised-button>Add Cakes</button> 
+        <button routerLink="/admin/home/stock" mat-raised-button color="primary">Check stock</button> 
+        <button routerLink="/admin/home/updatecake" (click)="fn3()" mat-raised-button color="accent">Update/Delete cakes</button> 
+        <!-- <button mat-raised-button color="warn">Delete Cake</button>  -->
+    </div> 
+
+    <div class="container text-center col-lg-12" style="margin-left: 7em;padding-top: 1em; " [hidden]="!add" >
+        <div>
+            <h1>Add cake details</h1>
+            <div class="card m-3">
+               
+                <div class="card-body">
+                    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                        <div class="row">
+                      
+                            <div class="col-4">
+                                <label>Cake Name</label>
+                                <input type="text" formControlName="name" class="form-control" [(ngModel)]="item.name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+                                <div class="invalid-feedback" >
+                                    <div *ngIf="f.name.errors?.required">Cake Name is required</div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <label>Price</label>
+                                <input type="text" formControlName="price" class="form-control" [(ngModel)]="item.price" [ngClass]="{ 'is-invalid': submitted && f.price.errors }" />
+                                <div class="invalid-feedback">
+                                    <div *ngIf="f.price.errors?.required">Price is required</div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <label>Details(Optional)</label>
+                                <textarea class="form-control" formControlName="details" id="details" rows="3" [(ngModel)]="item.details" [ngClass]="{ 'is-invalid': submitted && f.details.errors }" ></textarea>
+      
+                              </div>
+                        </div><br>
+                        <div class="row">
+                      
+                            <div class="col-4">
+                                <label>Quantity</label>
+                                <input type="text" formControlName="quantity" class="form-control" [(ngModel)]="item.quantity" [ngClass]="{ 'is-invalid': submitted && f.quantity.errors }" />
+                                <div class="invalid-feedback" >
+                                    <div *ngIf="f.quantity.errors?.required">Quantity is required</div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <label>Image URL</label>
+                                <input type="text" formControlName="img" class="form-control" [(ngModel)]="item.img" [ngClass]="{ 'is-invalid': submitted && f.img.errors }" />
+                                <div class="invalid-feedback">
+                                    <div *ngIf="f.img.errors?.required">Image Url is required</div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                    <br><br>
+              
+                        <div class="text-center">
+                            <button class="btn btn-primary mr-1">Add Cake</button> &nbsp; &nbsp;
+                            <button class="btn btn-secondary" type="reset" (click)="onReset()">Reset</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+      
+<br><br><br><br><br><br><br><br><br>
+</div>

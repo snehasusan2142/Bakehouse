@@ -1,0 +1,24 @@
+
+a{
+    color: antiquewhite;
+    font-size: 1.6em;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 0.2em;
+    margin: 1em;
+}
+#head-navbar {
+    width: 100%;
+
+  }
+  h1{
+      text-align: center;
+      padding-left: 3.1em;
+  
+     
+      font-size: 4.5em;
+      color: rgb(250, 248, 248);
+      font-family: "Sofia";
+      
+      /* transform: translate(-50%, -50%) */
+  }

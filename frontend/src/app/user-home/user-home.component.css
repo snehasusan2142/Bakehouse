@@ -1,0 +1,31 @@
+.box:hover{
+    transform: scale(1.1);
+
+}
+.cart{
+    border: beige;
+    background-color: #b2fba5;
+   
+}
+.carthead{
+    font-size: 2.1em;
+}
+.cart-body{
+    background-color:beige;
+}
+.inc{
+    width: 2.7em;
+}
+.maindiv{
+    background-repeat:repeat ;
+    background-image: url('https://png.pngtree.com/png-vector/20191219/ourlarge/pngtree-set-of-cute-bread-and-bakery-doodle-vector-illustration-bread-and-png-image_2090664.jpg');
+}
+.ml-4 {
+    background-color:#a9ebf0fd;
+    
+}
+.display-3{
+    font-size: xx-large;
+    color: darkred;
+    font-weight: 700;
+}

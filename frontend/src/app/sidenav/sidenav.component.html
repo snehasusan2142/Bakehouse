@@ -1,0 +1,39 @@
+<mat-sidenav-container>
+    <mat-sidenav mode="side" #sidenav [(opened)]="opened"><br><br>    
+        <p style="margin-top:10em;"><br></p>
+        <nav id="sidebar">
+            <br>
+          
+                <ul>
+                     <a routerLink="/admin/orders">Orders </a> 
+                </ul>
+            <ul>
+            
+                    <a>Cakes</a>
+    
+                        <li class="intend">
+                            <a routerLink="books">Add</a>
+                        </li>
+                        <li class="intend">
+                            <a routerLink="books">Edit</a>
+                        </li>
+                        <li class="intend">
+                            <a routerLink="addbook">Delete</a>
+                        </li>
+                       
+                    </ul>
+   
+              
+        
+                
+              
+                    <ul>
+               
+                    <a href="#">Delete User</a><br>
+                </ul>
+
+           
+        </nav>
+    
+    </mat-sidenav>
+    <mat-sidenav-content>

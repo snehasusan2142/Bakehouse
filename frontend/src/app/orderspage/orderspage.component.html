@@ -1,0 +1,52 @@
+<div class="cont">
+    <br><br>
+<h1 class="text-center">ORDERS</h1>
+<div class="card-group text-center">
+    <div class="row" style="margin: 0.5em;">
+        <div class="col-sm-6" style="margin-bottom: 0.5em;" *ngFor='let order of orders'>
+          <div class="card mb-3" >
+            <div class="card-header ">
+ {{ stringAsDate(order.createdAt) }}
+            </div>
+
+            <div class="card-body text-center">
+              <div class="card card2 mx-auto text-white bg-success mb-3">
+                <div class="card-header">Address</div>
+                <div class="card-body cb">
+                 <h3>{{order.address}}</h3>
+                </div>
+              </div>
+             
+                
+                
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">Sl</th>
+                      <th scope="col">Cakes</th>
+                      <th scope="col">Quantity</th>
+                     
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor='let cake of order.cake let i=index'>
+                      <th scope="row">{{i+1}}</th>
+                      <td> {{cake.name}}</td>
+        <td>{{cake.quantity}}Kg</td>
+                    </tr>
+                    
+                  </tbody>
+                </table>
+                             
+              <!-- <h5 class="card-title">Special title treatment</h5> -->
+              <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+              <a (click)="ready(order._id)" class="btn btn-primary">order Ready</a> &nbsp; &nbsp;
+              <a (click)="delete(order._id)" class="btn btn-danger">Delete order</a>
+            </div>
+          </div>
+        </div>
+       
+   
+            
+  </div>
+</div>

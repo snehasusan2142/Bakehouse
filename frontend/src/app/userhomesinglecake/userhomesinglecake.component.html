@@ -1,0 +1,86 @@
+<p style="margin-top: 13em;"><br></p>
+<div class="container">
+
+    <div class="row">
+        <!--/stories-->
+        <div class="col-1"></div>
+        <div class="col-4 text-center" style="margin: 1em;">
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{cakecard.img}}" width="300px" height="280px" alt="Card image cap">
+                <div class="card-body">
+                  <h1 class="card-title">{{cakecard.name}}</h1>
+                  <h3>{{cakecard.details}}</h3>
+              </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Rs:{{cakecard.price}}</li>
+                  <li class="list-group-item">Quantity:{{cakecard.quantity}}</li>
+                 <li   class="list-group-item"></li>
+                </ul>
+              </div>
+        </div>
+    
+      
+    
+        <div class="col-6">
+          <div class="card-body " style="padding-bottom:1em;">
+                      
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                <div class="row">
+              
+                    <div class="col-4">
+                        <label>Cake Name</label>
+                        <input type="text" formControlName="name" class="form-control" [(ngModel)]="cake.name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+                        <div class="invalid-feedback" >
+                            <div *ngIf="f.name.errors?.required">Cake Name is required</div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <label>Price</label>
+                        <input type="text" formControlName="price" class="form-control" [(ngModel)]="cake.price" [ngClass]="{ 'is-invalid': submitted && f.price.errors }" />
+                        <div class="invalid-feedback">
+                            <div *ngIf="f.price.errors?.required">Price is required</div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <label>Details(Optional)</label>
+                        <textarea class="form-control" formControlName="details" id="details" rows="3" [(ngModel)]="cake.details" [ngClass]="{ 'is-invalid': submitted && f.details.errors }" ></textarea>
+    
+                      </div>
+                </div><br>
+                <div class="row">
+              
+                    <div class="col-4">
+                        <label>Quantity</label>
+                        <input type="text" formControlName="stock" class="form-control" [(ngModel)]="cake.stock" [ngClass]="{ 'is-invalid': submitted && f.stock.errors }" />
+                        <div class="invalid-feedback" >
+                            <div *ngIf="f.stock.errors?.required">Quantity is required</div>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <label>Image URL</label>
+                        <input type="text" formControlName="img" class="form-control" [(ngModel)]="cake.img" [ngClass]="{ 'is-invalid': submitted && f.img.errors }" />
+                        <div class="invalid-feedback">
+                            <div *ngIf="f.img.errors?.required">Image Url is required</div>
+                        </div>
+                    </div>
+                </div>
+            
+            <br><br>
+      
+                <div class="text-center">
+                    <button class="btn btn-warning mr-1">Update Cake Details</button> &nbsp; &nbsp;
+                    <!-- <button class="btn btn-secondary" type="reset" (click)="onReset()">Reset</button> -->
+                </div>
+            </form>
+    
+    </div>
+    
+        </div>
+          
+            
+                </div>
+             
+
+</div>
+
+      

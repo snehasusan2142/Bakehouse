@@ -1,0 +1,54 @@
+<div class="container" style="padding-bottom:2em ;"></div>
+<br> <br> <br> <br> <br>
+<div class="maindiv textcenter row">
+<a  class="mainicons col" routerLink="/home">  <img src="https://images.assetsdelivery.com/compings_v2/wahyufrida/wahyufrida1903/wahyufrida190302433.jpg" style=" border-radius: 50%" height="80px" width="80px"><figcaption>Cakes</figcaption></a> 
+<a  class="mainicons col" routerLink="/login">  <img src="https://image.flaticon.com/icons/png/128/1087/1087804.png" style=" border-radius: 50%" height="80px" width="80px"><figcaption>Feedbacks</figcaption></a>
+<a  class="mainicons col" routerLink="/contactus">  <img src="https://keandtconsult.com/media/2020/02/Contact-icons-free-vector.jpg" style=" border-radius: 50%" height="80px" width="80px"><figcaption>Contact Us</figcaption></a>
+<a  *ngIf="log.adminlogg()" class="mainicons col" routerLink="/admin/home">  <img src="https://www.pinclipart.com/picdir/middle/331-3316988_check-mark-box-clip-art-admin-blue-icon.png"  style=" border-radius: 50%" height="80px" width="80px"><figcaption>Admin Pannel</figcaption></a>
+
+</div>
+<div class="em">
+<br>
+	<ngb-carousel class="carousel"> 
+		<ng-template ngbSlide>
+		  <div class="picsum-img-wrapper">
+			<img src="https://wallpaperaccess.com/full/986759.jpg" alt="Angular Carousel 1">
+		  </div>
+	
+		</ng-template>
+		<ng-template ngbSlide>
+		  <div class="picsum-img-wrapper">
+			<img src="https://tubelife.org/wp-content/uploads/2018/07/Birthday-cake-with-wishes.jpg" alt="Angular Carousel 1">
+		  </div>
+		
+		</ng-template>
+		<ng-template ngbSlide>
+			<div class="picsum-img-wrapper">
+			  <img src="https://www.sliceofitaly.com/files/product/medium/7EC43A00-valentine_cake_3.jpg" alt="Angular Carousel 2">
+			</div>
+			
+		  </ng-template>
+		  <ng-template ngbSlide>
+			<div class="picsum-img-wrapper">
+			  <img src="https://i.pinimg.com/originals/83/0a/f1/830af156f19ed6b482a6431b73fb7d91.jpg" alt="Angular Carousel 2">
+			</div>
+			
+		  </ng-template>
+	  </ngb-carousel>
+	 
+
+</div>
+<div style="padding: 2em;" >
+	<h2 class="text-xl-left">What our customer says?</h2>
+	<ngb-carousel class="carousel fbcaro"> 
+
+		<ng-template ngbSlide  *ngFor='let fb of fbs'>
+		  <div class="text-center">
+			<h2>{{fb.message}} <i> <p>-{{fb.user}}</p> </i> </h2> 
+		  </div>
+	
+		</ng-template>
+	</ngb-carousel>
+	<br>
+
+</div>

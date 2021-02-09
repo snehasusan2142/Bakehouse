@@ -1,0 +1,144 @@
+<div style="margin-top:10%;" class="heading">
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-3 text-center">Our Cakes..</h1>
+      <p class="lead text-center"></p>
+    </div>
+  </div>
+</div>
+
+<div class="maindiv" style="width: 100%;">
+  <div class="row" style="width: 100%;margin: 1.5em;">
+    <div class="allcards row col-8">
+          
+      <div class="card ml-4 mb-5 text-center box" style="width: 15rem;height:auto;margin: 1em;" *ngFor='let cake of cakes'>
+        <img class="card-img-top" style="width:200px;height:200px;border-radius: 100%; margin-left: 0.5em; margin-top: 1.2em;" [src]='cake.img' alt="Card image cap">
+        <div class="card-body " style="padding-bottom:1em;">
+          <h2 class="card-title"> <b> {{cake.name}}</b></h2>
+          <!-- <h4><span class="label label-default">{{cake.details}}</span></h4> <br> -->
+           <h4><span class="label label-default"><b>Rs:{{cake.price}}</b> </span></h4>
+           <span><h3><i>Stock:{{cake.stock}}</i></h3></span>
+           <span><h5><i>{{cake.details}}</i></h5></span>
+          
+          <h4>
+            <ng-template #t let-fill="fill">
+                <span *ngIf="fill === 100" class="heart full">&hearts;</span>
+                <span *ngIf="fill === 0" class="heart">&hearts;</span>
+                <span *ngIf="fill < 100 && fill > 0" class="heart">
+                  <span class="half" [style.width.%]="fill">&hearts;</span>&hearts;
+                </span>
+              </ng-template>
+
+
+        <ngb-rating [(rate)]=cake.rating [starTemplate]="t" [readonly]="true"></ngb-rating> <br> <br>
+        <button  (click)="moveToCart(this.cake)" class="btn btn-warning right">Move to cart</button>
+            <!-- <div class="m-t-10">Rate: <b>{{cake.rating}}</b></div> -->
+            <!-- <small style="font-family:courier,'new courier';" class="text-muted">Rating:{{cake.rating}}<br></small> -->
+          </h4>
+         
+          <br>
+        </div>
+      </div>
+  </div>
+  <div  class="col-3 cart"  >
+    <p style="margin-top:20%; margin-bottom: 0%"></p>
+    <div class="card text-center">
+      <div class="card-header">
+         <h1 class="carthead"> Shopping Cart <i class="material-icons">shopping_cart</i></h1>
+      </div>
+      <div class="card-body cart-body" style="padding:0.5em">
+        <h3 class="card-title">Cart Items</h3>
+        <div class="container"style=" margin: auto; text-align:center;" [hidden]="empty"><h1>Oops!! <br> <br> Cart is empty</h1><img src="https://www.rypen.com/assets/images/cart-empty.svg" height="150px" width="150px" ></div>
+        
+        <table class="table">
+          <thead [hidden]="!empty">
+            <tr>
+             
+              <th scope="col">Item</th>
+              <th scope="col">Price</th>
+              <th scope="col">Quantity(Kg)</th>
+            </tr>
+          </thead>
+        
+          <tbody >
+           
+           
+            <tr *ngFor='let cake of cartcakes'>
+             
+             
+              <td>{{cake.name}}</td>
+              <td>Rs:{{cake.price}}</td>
+              <td ><input type="number" (click)="getTotal();" class="inc" min="1" max={{cake.stock}} value="1" (input)="cake.quantity=$event.target.value"> </td>
+             <td><button   (click)="DeletefromCart(cake);getTotal()" class="btn btn-danger"><mat-icon>delete_forever</mat-icon></button></td>
+            </tr>
+            <tr>
+             
+             
+              <td>Total</td>
+              <td>Rs:</td>
+              <td>{{totalamount}}</td>  
+             
+             </tr>
+            
+          </tbody>
+        </table>
+
+        <a routerLink="adrs" [hidden]="!empty" (click)="checkout()"class="btn btn-outline-primary">Check Out</a>
+      </div>
+      <div class="card-footer text-muted">
+  Your Cart
+      </div>
+    </div>
+
+    <div *ngIf="log.loggedIn()" [hidden]="fb">
+      <p style="margin-top:20%; margin-bottom: 0%"></p>
+      
+      <div class="card text-center">
+        <div class="card-header">
+          <h1>Send us your feedback <mat-icon>feedback</mat-icon></h1>
+        </div>
+        <div class="card-body">
+          <label for="Name">User Name</label><input class="form-control" [(ngModel)]="user" placeholder="Name" type="text"> <br>
+          <textarea class="form-control" id="textarea1" rows="3" [(ngModel)]="fbmsg" placeholder="Your Reviews"></textarea>
+          <br>
+      
+          <a (click)="fn1();fbsubmit()"   class="btn btn-outline-primary">Submit</a>
+         
+        </div>
+  
+      </div>
+    </div>
+    <br>
+    <div *ngIf=fb class="alert alert-danger text-center" role="alert" [hidden]="add">
+      <h4 class="alert-heading">ThankYou!</h4>
+      Your Feedback message is saved.
+    </div>
+
+    <div *ngIf="log.loggedIn()">
+      <p style="margin-top:20%; margin-bottom: 0%"></p>
+      <div class="card text-center">
+        <div class="card-header">
+          <h1>Rate Our Cakes &nbsp; <mat-icon>thumbs_up_down</mat-icon></h1>
+        </div>
+        <div style="padding:3em">
+          <label for="exampleFormControlSelect1"><h2>Select Cake</h2></label>
+         <h3>
+          <select >
+            <option *ngFor='let cake of cakes'>{{cake.name}}</option>
+       
+          </select> <br> 
+         </h3>
+         <h1> <ngb-rating [(rate)]="currentRate"></ngb-rating></h1>
+          <div class="m-t-10">Rate: <b>{{currentRate}}</b></div> <br>
+          <a routerLink="/" class="btn btn-outline-primary">Submit</a>
+      </div>
+    </div>
+  
+
+  </div>
+
+
+  </div>
+    <!--/stories-->
+    
+</div>

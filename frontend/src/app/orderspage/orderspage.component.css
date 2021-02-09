@@ -1,0 +1,23 @@
+.container{
+    background-color: #facda9;
+    padding: 1em;
+}
+.card-header{
+    background-color:#32263a;
+    font-size: 1.5em;
+    color:#f2f8f4;
+    padding: 1em;
+    letter-spacing: 0.02em;
+}
+.card-body{
+    background-color:#f4faa9;
+    color: darkslategrey;
+}
+.cb{
+    background-color: #fdfcfd;
+    font-size: 1em;
+}
+.card2{
+    border: none;
+    width: 75%;
+}

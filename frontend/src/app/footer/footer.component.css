@@ -1,0 +1,11 @@
+footer {
+position: relative;
+height: 60px;
+padding-top:0.05em ;
+    background-color: rgb(43, 38, 38);
+    color: white;
+    text-align: center;
+  }
+  h4{
+   margin-top: 1em;
+  }

@@ -1,0 +1,23 @@
+<div class="container">
+    <br><br>
+<h1 class="text-center">Our Customers</h1>
+<div class="card-group text-center">
+    <div class="row" style="margin: 0.5em;">
+        <div class="col-sm-6" style="margin-bottom: 0.5em;" *ngFor='let user of users'>
+          <div class="card">
+            <div class="card-body">
+                
+                {{user.firstName}} {{user.lastName}} <br>
+                {{user.email}} <br>
+                            
+              <!-- <h5 class="card-title">Special title treatment</h5> -->
+              <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+             <a (click)="deleteUser(user._id)" class="btn btn-danger">Delete Customer</a>
+            </div>
+          </div>
+        </div>
+       
+   
+            
+  </div>
+</div>

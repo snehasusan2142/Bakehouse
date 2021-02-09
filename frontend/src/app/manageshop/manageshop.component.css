@@ -1,0 +1,9 @@
+.mat-raised-button{
+    margin: 1em;
+}
+.container1{
+    background-image: url('https://images.pexels.com/photos/255464/pexels-photo-255464.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
+background-size: cover;
+background-repeat: no-repeat;
+height: 13em;
+}

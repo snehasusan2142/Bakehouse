@@ -1,0 +1,26 @@
+<div class="container text-center col-lg-12" style="margin-left: 7em;padding-top: 10em;">
+  <div class="col-1"></div>
+    <div class="allcards row col-12" style="padding-left: 2em;">
+      
+          
+        <div class="card ml-4 mb-5 text-center box" style="width: 15rem;height:auto;margin: 1em;" *ngFor='let cake of cakes'>
+          <img class="card-img-top" style="width:200px;height:200px;border-radius: 100%; margin-left: 0.5em; margin-top: 1.2em;" [src]='cake.img' alt="Card image cap">
+          <div class="card-body " style="padding-bottom:1em;">
+            <h3 class="card-title"><b>{{cake.name}}</b></h3>
+            <!-- <h4><span class="label label-default">{{cake.details}}</span></h4> <br> -->
+             <h4>Rs:{{cake.price}}</h4>
+                       <h4>Stock:{{cake.stock}}</h4> 
+            <span class="label label-default">Details: <h5><i>{{cake.details}}</i></h5> </span>
+<div class="row text-center">
+ 
+    <a  routerLink="/admin/home/updatecake/{{cake._id}}" class="btn btn-warning desbtn btn1" ><mat-icon>double_arrow</mat-icon></a> 
+   &nbsp;&nbsp; <a class="btn btn-danger desbtn btn2" (click)="deletecake(this.cake)" >	<mat-icon>delete_forever</mat-icon></a>
+    
+
+  
+</div>
+            <br>
+          </div>
+        </div>
+    </div>
+</div>
